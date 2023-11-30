@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const String _fontFamily = 'Aref Ruqaa';
+const String _fontFamily = 'Poppins';
 
 TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
   return TextStyle(
