@@ -1,7 +1,6 @@
 import 'package:carvanta/core/utils/app_colors.dart';
 import 'package:carvanta/core/utils/style_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:carvanta/core/utils/media_query_values.dart';
 
 Widget defualtFormField(
   BuildContext context, {
@@ -12,13 +11,11 @@ Widget defualtFormField(
   bool isPassword = false,
   Widget? suffix,
 }) =>
-    Container(
-      width: double.infinity,
-      height: context.height * 0.08,
-      decoration: BoxDecoration(
-          color: AppColors.white, borderRadius: BorderRadius.circular(10)),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        clipBehavior: Clip.hardEdge,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
         child: Center(
           child: TextFormField(
             obscureText: isPassword,
@@ -34,7 +31,14 @@ Widget defualtFormField(
                     getMediumStyle(color: AppColors.lightBlack, fontSize: 17),
                 hintText: hint,
                 suffixIcon: suffix,
-                border: InputBorder.none),
+                filled: true,
+                fillColor: AppColors.grey,
+                errorBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                disabledBorder: InputBorder.none,
+                focusedErrorBorder: InputBorder.none,
+                border: const OutlineInputBorder()),
           ),
         ),
       ),
