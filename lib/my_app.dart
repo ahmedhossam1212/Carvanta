@@ -33,7 +33,13 @@ class Tester extends StatelessWidget {
               type: TextInputType.name,
               suffix: IconButton(
                   onPressed: () {},
-                  icon: const Icon(EneftyIcons.arrow_left_3_bold))),
+                  icon: Icon(
+                    EneftyIcons.arrow_left_3_bold,
+                    color: AppColors.lightBlack,
+                  ))),
+          const SizedBox(
+            height: 50,
+          ),
           mainButton(context,
               onpressd: () {}, background: AppColors.red, text: "text")
         ]),

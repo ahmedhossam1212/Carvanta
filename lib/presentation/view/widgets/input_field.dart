@@ -14,26 +14,28 @@ Widget defualtFormField(
 }) =>
     Container(
       width: double.infinity,
-      height: context.height * 0.06,
+      height: context.height * 0.08,
       decoration: BoxDecoration(
           color: AppColors.white, borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: TextFormField(
-          obscureText: isPassword,
-          keyboardType: type,
-          controller: controller,
-          validator: (String? s) {
-            return validate(s);
-          },
-          cursorColor: AppColors.lightBlack,
-          style: getMediumStyle(color: AppColors.lightBlack, fontSize: 17),
-          decoration: InputDecoration(
-              hintStyle:
-                  getMediumStyle(color: AppColors.lightBlack, fontSize: 17),
-              hintText: hint,
-              suffixIcon: suffix,
-              border: InputBorder.none),
+        child: Center(
+          child: TextFormField(
+            obscureText: isPassword,
+            keyboardType: type,
+            controller: controller,
+            validator: (String? s) {
+              return validate(s);
+            },
+            cursorColor: AppColors.lightBlack,
+            style: getMediumStyle(color: AppColors.lightBlack, fontSize: 17),
+            decoration: InputDecoration(
+                hintStyle:
+                    getMediumStyle(color: AppColors.lightBlack, fontSize: 17),
+                hintText: hint,
+                suffixIcon: suffix,
+                border: InputBorder.none),
+          ),
         ),
       ),
     );
