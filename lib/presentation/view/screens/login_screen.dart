@@ -1,6 +1,9 @@
+import 'package:carvanta/config/routes/app_routs.dart';
 import 'package:carvanta/core/utils/app_colors.dart';
 import 'package:carvanta/core/utils/media_query_values.dart';
 import 'package:carvanta/core/utils/style_manager.dart';
+import 'package:carvanta/presentation/view/screens/register_screen.dart';
+import 'package:carvanta/presentation/view/widgets/google_sign_button.dart';
 import 'package:carvanta/presentation/view/widgets/input_field.dart';
 import 'package:carvanta/presentation/view/widgets/main_button.dart';
 import 'package:enefty_icons/enefty_icons.dart';
@@ -68,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   hint: "Email",
                   type: TextInputType.emailAddress,
                   suffix: Icon(
-                    EneftyIcons.user_outline,
+                    Icons.email_outlined,
                     color: AppColors.lightBlack,
                   ),
                 ),
@@ -121,12 +124,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Don't have an account?",
+                      "Don’t have an account?",
                       style: getLightStyle(
                           color: AppColors.lightBlack, fontSize: 14),
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          navigateTo(context, const RegisterScreen());
+                        },
                         child: Text(
                           " Sign Up",
                           style:
@@ -137,63 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: context.height * 0.03,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 1,
-                      width: context.width * 0.4,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.centerRight,
-                              end: Alignment.centerLeft,
-                              colors: [AppColors.red, AppColors.white])),
-                    ),
-                    Text(
-                      " Or ",
-                      style: getBoldStyle(
-                          color: AppColors.lightBlack, fontSize: 20),
-                    ),
-                    Container(
-                      height: 1,
-                      width: context.width * 0.4,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                              colors: [AppColors.red, AppColors.white])),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: context.height * 0.03,
-                ),
-                InkWell(
-                  onTap: () {
-                    debugPrint("Google");
-                  },
-                  child: Container(
-                    height: context.height * 0.07,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppColors.red)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset("assets/images/G.png"),
-                        SizedBox(
-                          width: context.width * 0.02,
-                        ),
-                        Text(
-                          "Continue with Google",
-                          style: getRegularStyle(
-                              color: AppColors.red, fontSize: 15),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
+                buildGoogleSign(context),
               ],
             ),
           ),

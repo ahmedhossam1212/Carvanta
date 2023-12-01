@@ -1,3 +1,4 @@
+import 'package:carvanta/config/theme/app_theme.dart';
 import 'package:carvanta/presentation/view/screens/login_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -7,9 +8,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      theme: AppTheme.lightTheme(),
+      home: const LoginScreen(),
     );
   }
 }
