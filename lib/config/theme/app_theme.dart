@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 class AppTheme {
   static ThemeData lightTheme() {
     return ThemeData(
+      useMaterial3: true,
       scaffoldBackgroundColor: Colors.white,
       primaryColor: Colors.blue,
       appBarTheme: const AppBarTheme(
