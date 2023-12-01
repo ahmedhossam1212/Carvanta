@@ -1,5 +1,6 @@
 import 'package:carvanta/core/utils/app_colors.dart';
 import 'package:carvanta/presentation/view/widgets/input_field.dart';
+import 'package:carvanta/presentation/view/widgets/main_button.dart';
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,10 @@ class Tester extends StatelessWidget {
               hint: "hint",
               type: TextInputType.name,
               suffix: IconButton(
-                  onPressed: () {}, icon: Icon(EneftyIcons.arrow_left_3_bold))),
+                  onPressed: () {},
+                  icon: const Icon(EneftyIcons.arrow_left_3_bold))),
+          mainButton(context,
+              onpressd: () {}, background: AppColors.red, text: "text")
         ]),
       ),
     );
