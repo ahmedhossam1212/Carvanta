@@ -7,6 +7,7 @@ import 'package:carvanta/presentation/view/widgets/google_sign_button.dart';
 import 'package:carvanta/presentation/view/widgets/input_field.dart';
 import 'package:carvanta/presentation/view/widgets/main_button.dart';
 import 'package:enefty_icons/enefty_icons.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -71,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   hint: "Email",
                   type: TextInputType.emailAddress,
                   suffix: Icon(
-                    Icons.email_outlined,
+                    CupertinoIcons.mail,
                     color: AppColors.lightBlack,
                   ),
                 ),
