@@ -2,6 +2,7 @@ import 'package:carvanta/config/routes/app_routs.dart';
 import 'package:carvanta/core/utils/app_colors.dart';
 import 'package:carvanta/core/utils/media_query_values.dart';
 import 'package:carvanta/core/utils/style_manager.dart';
+import 'package:carvanta/presentation/view/screens/forget_password.dart';
 import 'package:carvanta/presentation/view/screens/register_screen.dart';
 import 'package:carvanta/presentation/view/widgets/google_sign_button.dart';
 import 'package:carvanta/presentation/view/widgets/input_field.dart';
@@ -61,6 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 defualtFormField(
                   context,
+                  width: double.infinity,
                   controller: emailController,
                   validate: (String value) {
                     if (value.contains("@")) {
@@ -79,8 +81,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: context.height * 0.02,
                 ),
-                defualtFormField(context, controller: passController,
-                    validate: (String value) {
+                defualtFormField(context,
+                    width: double.infinity,
+                    controller: passController, validate: (String value) {
                   if (value.length < 6) {
                     return "The password mustn't be less than 6 digits";
                   }
@@ -105,7 +108,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 Align(
                     alignment: AlignmentDirectional.centerEnd,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        navigateTo(context, const ForgetPasswordScreen());
+                      },
                       child: Text(
                         "Forget your password?",
                         style:

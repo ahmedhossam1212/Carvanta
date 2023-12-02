@@ -8,12 +8,14 @@ Widget defualtFormField(
   required Function validate,
   required String hint,
   required TextInputType type,
+  required double width,
   bool isPassword = false,
   Widget? suffix,
 }) =>
     Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
+        width: width,
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
         child: Center(

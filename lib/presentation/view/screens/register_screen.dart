@@ -65,6 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               defualtFormField(
                 context,
+                width: double.infinity,
                 controller: nameController,
                 validate: (String value) {
                   if (value.isEmpty) {
@@ -82,6 +83,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 height: context.height * 0.02,
               ),
               defualtFormField(
+                width: double.infinity,
                 context,
                 controller: emailController,
                 validate: (String value) {
@@ -103,6 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               defualtFormField(
                 context,
+                width: double.infinity,
                 controller: phoneController,
                 validate: (String value) {
                   if (value.isEmpty) {
@@ -119,8 +122,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(
                 height: context.height * 0.02,
               ),
-              defualtFormField(context, controller: passController,
-                  validate: (String value) {
+              defualtFormField(context,
+                  width: double.infinity,
+                  controller: passController, validate: (String value) {
                 if (value.length < 6) {
                   return "The password mustn't be less than 6 digits";
                 }
