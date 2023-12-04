@@ -3,6 +3,7 @@ import 'package:carvanta/core/utils/app_colors.dart';
 import 'package:carvanta/core/utils/media_query_values.dart';
 import 'package:carvanta/core/utils/style_manager.dart';
 import 'package:carvanta/presentation/view/screens/forget_password.dart';
+import 'package:carvanta/presentation/view/screens/main_screen.dart';
 import 'package:carvanta/presentation/view/screens/register_screen.dart';
 import 'package:carvanta/presentation/view/widgets/google_sign_button.dart';
 import 'package:carvanta/presentation/view/widgets/input_field.dart';
@@ -121,7 +122,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: context.height * 0.03,
                 ),
                 mainButton(context, onpressd: () {
-                  if (formKey.currentState!.validate()) {}
+                  if (formKey.currentState!.validate()) {
+                    navigateTo(context, const MainScreen());
+                  }
                 }, background: AppColors.red, text: "Log In"),
                 SizedBox(
                   height: context.height * 0.02,
