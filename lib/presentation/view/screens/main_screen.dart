@@ -16,6 +16,12 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int curentIndex = 0;
+  List<String> appBarTitle = [
+    "Carvanta",
+    "Licence",
+    "Refueling",
+    "Services",
+  ];
   List<Widget> screens = [
     const HomeScreen(),
     const LicenceScreen(),
@@ -35,7 +41,7 @@ class _MainScreenState extends State<MainScreen> {
               color: AppColors.white,
             )),
         title: Text(
-          "Carvanta",
+          appBarTitle[curentIndex],
           style: getBoldStyle(color: AppColors.white, fontSize: 20),
         ),
         actions: [

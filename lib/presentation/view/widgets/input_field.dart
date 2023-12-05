@@ -11,37 +11,36 @@ Widget defualtFormField(
   required double width,
   bool isPassword = false,
   Widget? suffix,
+  double? height,
 }) =>
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        width: width,
-        clipBehavior: Clip.hardEdge,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-        child: Center(
-          child: TextFormField(
-            obscureText: isPassword,
-            keyboardType: type,
-            controller: controller,
-            validator: (String? s) {
-              return validate(s);
-            },
-            cursorColor: AppColors.lightBlack,
-            style: getMediumStyle(color: AppColors.lightBlack, fontSize: 17),
-            decoration: InputDecoration(
-                hintStyle:
-                    getMediumStyle(color: AppColors.lightBlack, fontSize: 17),
-                hintText: hint,
-                suffixIcon: suffix,
-                filled: true,
-                fillColor: AppColors.grey,
-                errorBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                disabledBorder: InputBorder.none,
-                focusedErrorBorder: InputBorder.none,
-                border: const OutlineInputBorder()),
-          ),
+    Container(
+      height: height,
+      width: width,
+      clipBehavior: Clip.hardEdge,
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+      child: Center(
+        child: TextFormField(
+          obscureText: isPassword,
+          keyboardType: type,
+          controller: controller,
+          validator: (String? s) {
+            return validate(s);
+          },
+          cursorColor: AppColors.lightBlack,
+          style: getMediumStyle(color: AppColors.lightBlack, fontSize: 17),
+          decoration: InputDecoration(
+              hintStyle:
+                  getMediumStyle(color: AppColors.lightBlack, fontSize: 17),
+              hintText: hint,
+              suffixIcon: suffix,
+              filled: true,
+              fillColor: AppColors.grey,
+              errorBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              disabledBorder: InputBorder.none,
+              focusedErrorBorder: InputBorder.none,
+              border: const OutlineInputBorder()),
         ),
       ),
     );
