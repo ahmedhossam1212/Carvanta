@@ -3,8 +3,8 @@ import 'package:carvanta/core/utils/app_colors.dart';
 import 'package:carvanta/core/utils/media_query_values.dart';
 import 'package:carvanta/core/utils/style_manager.dart';
 import 'package:carvanta/presentation/view/screens/new_password.dart';
-import 'package:carvanta/presentation/view/widgets/input_field.dart';
 import 'package:carvanta/presentation/view/widgets/main_button.dart';
+import 'package:carvanta/presentation/view/widgets/otp_field.dart';
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -86,48 +86,41 @@ class _ResetPasswordState extends State<ResetPassword> {
                   Row(
                     children: [
                       Expanded(
-                        child: defualtFormField(context,
-                            controller: digt0Controller,
-                            validate: () {},
-                            hint: "",
-                            type: TextInputType.number,
-                            width: double.infinity),
+                        child: otpForm(
+                          context,
+                          controller: digt0Controller,
+                          validate: () {},
+                        ),
                       ),
                       SizedBox(
-                        width: context.width * 0.01,
+                        width: context.width * 0.07,
                       ),
                       Expanded(
-                        child: defualtFormField(context,
-                            controller: digt1Controller,
-                            validate: () {},
-                            hint: "",
-                            type: TextInputType.number,
-                            width: double.infinity),
+                        child: otpForm(
+                          context,
+                          controller: digt1Controller,
+                          validate: () {},
+                        ),
                       ),
                       SizedBox(
-                        width: context.width * 0.01,
+                        width: context.width * 0.07,
                       ),
                       Expanded(
-                        child: defualtFormField(context,
-                            controller: digt2Controller,
-                            validate: () {},
-                            hint: "",
-                            type: TextInputType.number,
-                            width: double.infinity),
+                        child: otpForm(
+                          context,
+                          controller: digt2Controller,
+                          validate: () {},
+                        ),
                       ),
                       SizedBox(
-                        width: context.width * 0.01,
+                        width: context.width * 0.07,
                       ),
                       Expanded(
-                        child: defualtFormField(context,
-                            controller: digt3Controller,
-                            validate: () {},
-                            hint: "",
-                            type: TextInputType.number,
-                            width: double.infinity),
-                      ),
-                      SizedBox(
-                        width: context.width * 0.01,
+                        child: otpForm(
+                          context,
+                          controller: digt3Controller,
+                          validate: () {},
+                        ),
                       ),
                     ],
                   ),

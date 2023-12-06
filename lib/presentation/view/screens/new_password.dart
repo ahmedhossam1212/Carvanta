@@ -103,6 +103,9 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                       ),
                       isPassword: isPassword,
                       width: double.infinity),
+                  SizedBox(
+                    height: context.height * 0.02,
+                  ),
                   defualtFormField(context,
                       controller: confirmPasswordController,
                       validate: () {},
