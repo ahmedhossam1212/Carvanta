@@ -58,47 +58,39 @@ class _LicenceScreenState extends State<LicenceScreen> {
             SizedBox(
               height: context.height * 0.02,
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "Plate number",
-                            style: getLightStyle(
-                              color: AppColors.black,
-                              fontSize: 15,
-                            ),
-                          ),
-                          Text(
-                            "*",
-                            style: getLightStyle(
-                              color: AppColors.red,
-                              fontSize: 15,
-                            ),
-                          ),
-                        ],
+                Row(
+                  children: [
+                    Text(
+                      "Plate number",
+                      style: getLightStyle(
+                        color: AppColors.black,
+                        fontSize: 15,
                       ),
-                      defualtFormField(
-                        context,
-                        height: context.height * 0.052,
-                        controller: plateLetterController,
-                        validate: () {},
-                        hint: "Ex : 52354 & 5 5 6 5 د ق م",
-                        type: TextInputType.text,
-                        width: double.infinity,
+                    ),
+                    Text(
+                      "*",
+                      style: getLightStyle(
+                        color: AppColors.red,
+                        fontSize: 15,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  width: context.height * 0.01,
+                defualtFormField(
+                  context,
+                  controller: plateLetterController,
+                  validate: () {},
+                  hint: "Ex : 52354 & 5 5 6 5 د ق م",
+                  type: TextInputType.text,
+                  width: double.infinity,
                 ),
               ],
+            ),
+            SizedBox(
+              width: context.height * 0.01,
             ),
             SizedBox(
               height: context.height * 0.02,
@@ -131,78 +123,74 @@ class _LicenceScreenState extends State<LicenceScreen> {
               height: context.height * 0.02,
             ),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "Date of issue",
-                            style: getLightStyle(
-                              color: AppColors.black,
-                              fontSize: 15,
-                            ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          "Date of issue",
+                          style: getLightStyle(
+                            color: AppColors.black,
+                            fontSize: 15,
                           ),
-                          Text(
-                            "*",
-                            style: getLightStyle(
-                              color: AppColors.red,
-                              fontSize: 15,
-                            ),
+                        ),
+                        Text(
+                          "*",
+                          style: getLightStyle(
+                            color: AppColors.red,
+                            fontSize: 15,
                           ),
-                        ],
-                      ),
-                      defualtFormField(context,
-                          height: context.height * 0.052,
-                          controller: issueController,
-                          validate: () {},
-                          hint: "",
-                          type: TextInputType.number,
-                          width: context.width * 0.5,
-                          suffix: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(EneftyIcons.calendar_outline))),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                    defualtFormField(context,
+                        controller: issueController,
+                        validate: () {},
+                        hint: "",
+                        type: TextInputType.number,
+                        width: context.width * 0.45,
+                        suffix: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(EneftyIcons.calendar_outline))),
+                  ],
                 ),
                 SizedBox(
                   width: context.height * 0.01,
                 ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "Date of expiry",
-                            style: getLightStyle(
-                              color: AppColors.black,
-                              fontSize: 15,
-                            ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          "Date of expiry",
+                          style: getLightStyle(
+                            color: AppColors.black,
+                            fontSize: 15,
                           ),
-                          Text(
-                            "*",
-                            style: getLightStyle(
-                              color: AppColors.red,
-                              fontSize: 15,
-                            ),
+                        ),
+                        Text(
+                          "*",
+                          style: getLightStyle(
+                            color: AppColors.red,
+                            fontSize: 15,
                           ),
-                        ],
-                      ),
-                      defualtFormField(context,
-                          controller: platNumController,
-                          validate: () {},
-                          hint: "",
-                          type: TextInputType.number,
-                          width: context.width * 0.5,
-                          suffix: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(EneftyIcons.calendar_outline))),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                    defualtFormField(context,
+                        controller: platNumController,
+                        validate: () {},
+                        hint: "",
+                        type: TextInputType.number,
+                        width: context.width * 0.45,
+                        suffix: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(EneftyIcons.calendar_outline))),
+                  ],
                 ),
               ],
             ),
