@@ -1,11 +1,15 @@
+import 'package:carvanta/config/routes/app_routs.dart';
 import 'package:carvanta/core/utils/app_colors.dart';
 import 'package:carvanta/core/utils/style_manager.dart';
+import 'package:carvanta/presentation/view/screens/drawer.dart';
 import 'package:carvanta/presentation/view/screens/home_screen.dart';
 import 'package:carvanta/presentation/view/screens/licence_screen.dart';
+import 'package:carvanta/presentation/view/screens/notification_screen.dart';
 import 'package:carvanta/presentation/view/screens/refuel_screen.dart';
 import 'package:carvanta/presentation/view/screens/services_screen.dart';
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -32,21 +36,20 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        systemOverlayStyle:
+            SystemUiOverlayStyle(statusBarColor: AppColors.lightBlack),
         centerTitle: true,
         backgroundColor: AppColors.lightBlack,
-        leading: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              EneftyIcons.menu_outline,
-              color: AppColors.white,
-            )),
+        leading: const DrawerWidget(),
         title: Text(
           appBarTitle[curentIndex],
           style: getBoldStyle(color: AppColors.white, fontSize: 20),
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                navigateTo(context, const NotificationScreen());
+              },
               icon: Icon(
                 EneftyIcons.notification_outline,
                 color: AppColors.white,
