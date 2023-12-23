@@ -52,15 +52,25 @@ class _DrawerScreenState extends State<DrawerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.lightBlack,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          drawerList(
-              EneftyIcons.user_outline, "Profile", const ProfileScreen()),
-          drawerList(EneftyIcons.password_check_outline, "Change Password",
-              const ChangePasswordScreen()),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Carvanta",
+              style: getBoldStyle(color: AppColors.white, fontSize: 30),
+            ),
+            SizedBox(
+              height: context.height * 0.15,
+            ),
+            drawerList(
+                EneftyIcons.user_outline, "Profile", const ProfileScreen()),
+            drawerList(EneftyIcons.password_check_outline, "Change Password",
+                const ChangePasswordScreen()),
+          ],
+        ),
       ),
     );
   }
