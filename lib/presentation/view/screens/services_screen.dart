@@ -1,6 +1,8 @@
+import 'package:carvanta/config/routes/app_routs.dart';
 import 'package:carvanta/core/utils/app_colors.dart';
 import 'package:carvanta/core/utils/media_query_values.dart';
 import 'package:carvanta/core/utils/style_manager.dart';
+import 'package:carvanta/presentation/view/screens/add_services_screen.dart';
 import 'package:carvanta/presentation/view/widgets/services_item.dart';
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +37,9 @@ class ServicesScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  navigateTo(context, const AddNewServicesScreen());
+                },
                 child: Row(
                   children: [
                     Icon(

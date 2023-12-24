@@ -2,9 +2,11 @@ import 'package:carvanta/config/routes/app_routs.dart';
 import 'package:carvanta/core/utils/app_colors.dart';
 import 'package:carvanta/core/utils/media_query_values.dart';
 import 'package:carvanta/core/utils/style_manager.dart';
+import 'package:carvanta/presentation/view/screens/change_password_screen.dart';
 import 'package:carvanta/presentation/view/screens/home_screen.dart';
 import 'package:carvanta/presentation/view/screens/licence_screen.dart';
 import 'package:carvanta/presentation/view/screens/notification_screen.dart';
+import 'package:carvanta/presentation/view/screens/profile_screen.dart';
 import 'package:carvanta/presentation/view/screens/refuel_screen.dart';
 import 'package:carvanta/presentation/view/screens/services_screen.dart';
 import 'package:enefty_icons/enefty_icons.dart';
@@ -21,15 +23,6 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int curentIndex = 0;
   int selectedIndex = 0;
-
-  List<String> services = [
-    "Rescue Winch",
-    "Oil change",
-    "Brakes",
-    "Tires",
-    "Oil filter",
-    "Battery"
-  ];
 
   List<String> appBarTitle = [
     "Carvanta",
@@ -111,10 +104,13 @@ class _MainScreenState extends State<MainScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            navigateTo(context, const ProfileScreen());
+                          },
                           child: Row(
                             children: [
                               Icon(
@@ -133,7 +129,9 @@ class _MainScreenState extends State<MainScreen> {
                           )),
                       const Divider(),
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            navigateTo(context, const ChangePasswordScreen());
+                          },
                           child: Row(
                             children: [
                               Icon(
@@ -151,51 +149,68 @@ class _MainScreenState extends State<MainScreen> {
                             ],
                           )),
                       const Divider(),
-                      TextButton(
-                          onPressed: () {},
-                          child: Row(
-                            children: [
-                              Icon(
-                                EneftyIcons.setting_2_outline,
-                                color: AppColors.lightBlack,
-                              ),
-                              SizedBox(
-                                width: context.width * 0.03,
-                              ),
-                              Text(
-                                "Services",
-                                style: getMediumStyle(
-                                    fontSize: 17, color: AppColors.lightBlack),
-                              ),
-                              SizedBox(
-                                width: context.width * 0.01,
-                              ),
-                              DropdownButton<String>(
-                                alignment: Alignment.bottomLeft,
-                                borderRadius: BorderRadius.circular(15),
-                                elevation: 5,
-                                icon: Icon(
-                                  EneftyIcons.arrow_down_outline,
-                                  color: AppColors.lightBlack,
-                                ),
-                                items: services
-                                    .map((item) => DropdownMenuItem<String>(
-                                          value: item,
-                                          child: Text(
-                                            item,
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: AppColors.black),
-                                          ),
-                                        ))
-                                    .toList(),
-                                onChanged: (item) => setState(() {}),
-                              ),
-                            ],
-                          )),
-                      SizedBox(
-                        height: context.height * 0.43,
+                      ExpansionTile(
+                        iconColor: AppColors.lightBlack,
+                        collapsedIconColor: AppColors.lightBlack,
+                        title: Text("Services",
+                            style: getMediumStyle(
+                                color: AppColors.lightBlack, fontSize: 17)),
+                        leading: const Icon(EneftyIcons.setting_2_outline),
+                        childrenPadding: EdgeInsets.only(
+                          left: context.width * 0.03,
+                        ),
+                        children: [
+                          ListTile(
+                            onTap: () {},
+                            title: Text(
+                              "Rescue Winch",
+                              style: getMediumStyle(
+                                  color: AppColors.lightBlack, fontSize: 15),
+                            ),
+                          ),
+                          ListTile(
+                            onTap: () {},
+                            title: Text(
+                              "Oil Change",
+                              style: getMediumStyle(
+                                  color: AppColors.lightBlack, fontSize: 15),
+                            ),
+                          ),
+                          ListTile(
+                            onTap: () {},
+                            title: Text(
+                              "Brakes",
+                              style: getMediumStyle(
+                                  color: AppColors.lightBlack, fontSize: 15),
+                            ),
+                          ),
+                          ListTile(
+                            onTap: () {},
+                            title: Text(
+                              "Tires",
+                              style: getMediumStyle(
+                                  color: AppColors.lightBlack, fontSize: 15),
+                            ),
+                          ),
+                          ListTile(
+                            onTap: () {},
+                            title: Text(
+                              "Oil Filter",
+                              style: getMediumStyle(
+                                  color: AppColors.lightBlack, fontSize: 15),
+                            ),
+                          ),
+                          ListTile(
+                            onTap: () {},
+                            title: Text(
+                              "Battery",
+                              style: getMediumStyle(
+                                  color: AppColors.lightBlack, fontSize: 15),
+                            ),
+                          )
+                        ],
                       ),
+                      const Spacer(),
                       TextButton(
                           onPressed: () {},
                           child: Row(
