@@ -154,7 +154,10 @@ class _LicenceScreenState extends State<LicenceScreen> {
                         width: context.width * 0.45,
                         suffix: IconButton(
                             onPressed: () {},
-                            icon: const Icon(EneftyIcons.calendar_outline))),
+                            icon: Icon(
+                              EneftyIcons.calendar_outline,
+                              color: AppColors.lightGrey,
+                            ))),
                   ],
                 ),
                 SizedBox(
@@ -189,7 +192,10 @@ class _LicenceScreenState extends State<LicenceScreen> {
                         width: context.width * 0.45,
                         suffix: IconButton(
                             onPressed: () {},
-                            icon: const Icon(EneftyIcons.calendar_outline))),
+                            icon: Icon(
+                              EneftyIcons.calendar_outline,
+                              color: AppColors.lightGrey,
+                            ))),
                   ],
                 ),
               ],

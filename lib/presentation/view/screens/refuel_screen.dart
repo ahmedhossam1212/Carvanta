@@ -70,7 +70,10 @@ class _RefuelScreenState extends State<RefuelScreen> {
                 width: double.infinity,
                 suffix: IconButton(
                     onPressed: () {},
-                    icon: const Icon(EneftyIcons.calendar_outline))),
+                    icon: Icon(
+                      EneftyIcons.calendar_outline,
+                      color: AppColors.lightGrey,
+                    ))),
             SizedBox(
               height: context.height * 0.02,
             ),
@@ -94,7 +97,7 @@ class _RefuelScreenState extends State<RefuelScreen> {
             ),
             defualtFormField(
               context,
-              controller: dateController,
+              controller: odometerController,
               validate: () {},
               hint: "",
               type: TextInputType.name,
@@ -159,7 +162,7 @@ class _RefuelScreenState extends State<RefuelScreen> {
                       ],
                     ),
                     defualtFormField(context,
-                        controller: litersController,
+                        controller: pricePerLiterController,
                         validate: () {},
                         hint: "",
                         type: TextInputType.number,
@@ -191,7 +194,7 @@ class _RefuelScreenState extends State<RefuelScreen> {
             ),
             defualtFormField(
               context,
-              controller: dateController,
+              controller: totalCostController,
               validate: () {},
               hint: "",
               type: TextInputType.name,
@@ -219,20 +222,17 @@ class _RefuelScreenState extends State<RefuelScreen> {
               ],
             ),
             defualtFormField(context,
-                controller: dateController,
+                controller: efficiencyController,
                 validate: () {},
                 hint: "",
                 type: TextInputType.name,
                 width: double.infinity,
                 suffix: Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      "Km/Liter",
-                      style: getMediumStyle(
-                          color: AppColors.lightGrey, fontSize: 15),
-                    ),
+                  padding: const EdgeInsets.all(15.0),
+                  child: Text(
+                    "Km/Liter",
+                    style: getMediumStyle(
+                        color: AppColors.lightGrey, fontSize: 15),
                   ),
                 )),
             SizedBox(

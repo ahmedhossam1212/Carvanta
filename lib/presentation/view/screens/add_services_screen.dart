@@ -105,7 +105,10 @@ class _AddNewServicesScreenState extends State<AddNewServicesScreen> {
                   width: double.infinity,
                   suffix: IconButton(
                       onPressed: () {},
-                      icon: const Icon(EneftyIcons.calendar_outline))),
+                      icon: Icon(
+                        EneftyIcons.calendar_outline,
+                        color: AppColors.lightGrey,
+                      ))),
               SizedBox(
                 height: context.height * 0.01,
               ),
@@ -347,7 +350,7 @@ class _AddNewServicesScreenState extends State<AddNewServicesScreen> {
                       Icon(
                         EneftyIcons.arrow_right_4_outline,
                         color: AppColors.black,
-                        size: 20,
+                        size: 15,
                       )
                     ],
                   )),
