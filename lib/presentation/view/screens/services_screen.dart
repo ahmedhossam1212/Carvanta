@@ -28,7 +28,7 @@ class ServicesScreen extends StatelessWidget {
           alignment: Alignment.bottomLeft,
           child: Container(
             width: context.width * 0.45,
-            height: context.height * 0.07,
+            height: context.height * 0.1,
             decoration: BoxDecoration(
                 color: AppColors.red,
                 borderRadius: const BorderRadius.only(
@@ -41,6 +41,7 @@ class ServicesScreen extends StatelessWidget {
                   navigateTo(context, const AddNewServicesScreen());
                 },
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Icon(
                       EneftyIcons.add_outline,
@@ -48,8 +49,9 @@ class ServicesScreen extends StatelessWidget {
                     ),
                     Text(
                       "Add new item",
-                      style:
-                          getMediumStyle(color: AppColors.white, fontSize: 15),
+                      style: getMediumStyle(
+                          color: AppColors.white,
+                          fontSize: context.height * 0.022),
                     )
                   ],
                 ),

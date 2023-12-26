@@ -99,137 +99,141 @@ class _MainScreenState extends State<MainScreen> {
                 topRight: Radius.circular(20),
               )),
               child: Drawer(
-                width: context.width * 0.8,
+                width: context.width * 0.9,
                 clipBehavior: Clip.hardEdge,
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      TextButton(
-                          onPressed: () {
-                            navigateTo(context, const ProfileScreen());
-                          },
-                          child: Row(
-                            children: [
-                              Icon(
-                                EneftyIcons.user_outline,
-                                color: AppColors.lightBlack,
-                              ),
-                              SizedBox(
-                                width: context.width * 0.03,
-                              ),
-                              Text(
-                                "Profile",
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        TextButton(
+                            onPressed: () {
+                              navigateTo(context, const ProfileScreen());
+                            },
+                            child: Row(
+                              children: [
+                                Icon(
+                                  EneftyIcons.user_outline,
+                                  color: AppColors.lightBlack,
+                                ),
+                                SizedBox(
+                                  width: context.width * 0.03,
+                                ),
+                                Text(
+                                  "Profile",
+                                  style: getMediumStyle(
+                                      fontSize: 17,
+                                      color: AppColors.lightBlack),
+                                ),
+                              ],
+                            )),
+                        const Divider(),
+                        TextButton(
+                            onPressed: () {
+                              navigateTo(context, const ChangePasswordScreen());
+                            },
+                            child: Row(
+                              children: [
+                                Icon(
+                                  EneftyIcons.password_check_outline,
+                                  color: AppColors.lightBlack,
+                                ),
+                                SizedBox(
+                                  width: context.width * 0.03,
+                                ),
+                                SizedBox(
+                                  width: context.width * 0.4,
+                                  child: Text(
+                                    "Change Password",
+                                    style: getMediumStyle(
+                                        fontSize: 17,
+                                        color: AppColors.lightBlack),
+                                  ),
+                                ),
+                              ],
+                            )),
+                        const Divider(),
+                        ExpansionTile(
+                          iconColor: AppColors.lightBlack,
+                          collapsedIconColor: AppColors.lightBlack,
+                          title: Text("Services",
+                              style: getMediumStyle(
+                                  color: AppColors.lightBlack, fontSize: 17)),
+                          leading: const Icon(EneftyIcons.setting_2_outline),
+                          children: [
+                            ListTile(
+                              onTap: () {},
+                              title: Text(
+                                "Rescue Winch",
                                 style: getMediumStyle(
-                                    fontSize: 17, color: AppColors.lightBlack),
+                                    color: AppColors.lightBlack, fontSize: 15),
                               ),
-                            ],
-                          )),
-                      const Divider(),
-                      TextButton(
-                          onPressed: () {
-                            navigateTo(context, const ChangePasswordScreen());
-                          },
-                          child: Row(
-                            children: [
-                              Icon(
-                                EneftyIcons.password_check_outline,
-                                color: AppColors.lightBlack,
-                              ),
-                              SizedBox(
-                                width: context.width * 0.03,
-                              ),
-                              Text(
-                                "Change Password",
+                            ),
+                            ListTile(
+                              onTap: () {},
+                              title: Text(
+                                "Oil Change",
                                 style: getMediumStyle(
-                                    fontSize: 17, color: AppColors.lightBlack),
+                                    color: AppColors.lightBlack, fontSize: 15),
                               ),
-                            ],
-                          )),
-                      const Divider(),
-                      ExpansionTile(
-                        iconColor: AppColors.lightBlack,
-                        collapsedIconColor: AppColors.lightBlack,
-                        title: Text("Services",
-                            style: getMediumStyle(
-                                color: AppColors.lightBlack, fontSize: 17)),
-                        leading: const Icon(EneftyIcons.setting_2_outline),
-                        childrenPadding: EdgeInsets.only(
-                          left: context.width * 0.03,
+                            ),
+                            ListTile(
+                              onTap: () {},
+                              title: Text(
+                                "Brakes",
+                                style: getMediumStyle(
+                                    color: AppColors.lightBlack, fontSize: 15),
+                              ),
+                            ),
+                            ListTile(
+                              onTap: () {},
+                              title: Text(
+                                "Tires",
+                                style: getMediumStyle(
+                                    color: AppColors.lightBlack, fontSize: 15),
+                              ),
+                            ),
+                            ListTile(
+                              onTap: () {},
+                              title: Text(
+                                "Oil Filter",
+                                style: getMediumStyle(
+                                    color: AppColors.lightBlack, fontSize: 15),
+                              ),
+                            ),
+                            ListTile(
+                              onTap: () {},
+                              title: Text(
+                                "Battery",
+                                style: getMediumStyle(
+                                    color: AppColors.lightBlack, fontSize: 15),
+                              ),
+                            )
+                          ],
                         ),
-                        children: [
-                          ListTile(
-                            onTap: () {},
-                            title: Text(
-                              "Rescue Winch",
-                              style: getMediumStyle(
-                                  color: AppColors.lightBlack, fontSize: 15),
-                            ),
-                          ),
-                          ListTile(
-                            onTap: () {},
-                            title: Text(
-                              "Oil Change",
-                              style: getMediumStyle(
-                                  color: AppColors.lightBlack, fontSize: 15),
-                            ),
-                          ),
-                          ListTile(
-                            onTap: () {},
-                            title: Text(
-                              "Brakes",
-                              style: getMediumStyle(
-                                  color: AppColors.lightBlack, fontSize: 15),
-                            ),
-                          ),
-                          ListTile(
-                            onTap: () {},
-                            title: Text(
-                              "Tires",
-                              style: getMediumStyle(
-                                  color: AppColors.lightBlack, fontSize: 15),
-                            ),
-                          ),
-                          ListTile(
-                            onTap: () {},
-                            title: Text(
-                              "Oil Filter",
-                              style: getMediumStyle(
-                                  color: AppColors.lightBlack, fontSize: 15),
-                            ),
-                          ),
-                          ListTile(
-                            onTap: () {},
-                            title: Text(
-                              "Battery",
-                              style: getMediumStyle(
-                                  color: AppColors.lightBlack, fontSize: 15),
-                            ),
-                          )
-                        ],
-                      ),
-                      const Spacer(),
-                      TextButton(
-                          onPressed: () {},
-                          child: Row(
-                            children: [
-                              Icon(
-                                EneftyIcons.logout_outline,
-                                color: AppColors.lightBlack,
-                              ),
-                              SizedBox(
-                                width: context.width * 0.03,
-                              ),
-                              Text(
-                                "Log Out",
-                                style: getMediumStyle(
-                                    fontSize: 17, color: AppColors.lightBlack),
-                              ),
-                            ],
-                          )),
-                    ],
+                        TextButton(
+                            onPressed: () {},
+                            child: Row(
+                              children: [
+                                Icon(
+                                  EneftyIcons.logout_outline,
+                                  color: AppColors.lightBlack,
+                                ),
+                                SizedBox(
+                                  width: context.width * 0.03,
+                                ),
+                                Text(
+                                  "Log Out",
+                                  style: getMediumStyle(
+                                      fontSize: 17,
+                                      color: AppColors.lightBlack),
+                                ),
+                              ],
+                            )),
+                      ],
+                    ),
                   ),
                 ),
               ),

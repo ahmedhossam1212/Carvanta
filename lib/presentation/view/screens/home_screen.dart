@@ -40,15 +40,14 @@ class HomeScreen extends StatelessWidget {
           Container(
             clipBehavior: Clip.hardEdge,
             width: double.infinity,
-            height: context.height * 0.15,
             decoration: BoxDecoration(
                 color: AppColors.grey, borderRadius: BorderRadius.circular(15)),
             child: Row(
               children: [
                 Container(
+                  height: context.height * 0.18,
                   decoration: BoxDecoration(color: AppColors.red),
                   width: 5,
-                  height: context.height * 0.13,
                 ),
                 SizedBox(
                   width: context.width * 0.01,

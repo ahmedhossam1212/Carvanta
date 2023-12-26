@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 
 Widget buildNotifiactionItem(BuildContext context) => Container(
       width: double.infinity,
-      height: context.height * 0.16,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: AppColors.grey),
       child: Padding(

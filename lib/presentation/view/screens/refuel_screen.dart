@@ -134,11 +134,11 @@ class _RefuelScreenState extends State<RefuelScreen> {
                         validate: () {},
                         hint: "",
                         type: TextInputType.number,
-                        width: context.width * 0.45)
+                        width: context.width * 0.43)
                   ],
                 ),
                 SizedBox(
-                  width: context.width * 0.02,
+                  width: context.width * 0.035,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,7 +166,7 @@ class _RefuelScreenState extends State<RefuelScreen> {
                         validate: () {},
                         hint: "",
                         type: TextInputType.number,
-                        width: context.width * 0.45)
+                        width: context.width * 0.43)
                   ],
                 )
               ],

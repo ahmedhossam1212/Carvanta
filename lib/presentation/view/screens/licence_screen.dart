@@ -151,7 +151,7 @@ class _LicenceScreenState extends State<LicenceScreen> {
                         validate: () {},
                         hint: "",
                         type: TextInputType.number,
-                        width: context.width * 0.45,
+                        width: context.width * 0.43,
                         suffix: IconButton(
                             onPressed: () {},
                             icon: Icon(
@@ -161,7 +161,7 @@ class _LicenceScreenState extends State<LicenceScreen> {
                   ],
                 ),
                 SizedBox(
-                  width: context.height * 0.01,
+                  width: context.height * 0.025,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -189,7 +189,7 @@ class _LicenceScreenState extends State<LicenceScreen> {
                         validate: () {},
                         hint: "",
                         type: TextInputType.number,
-                        width: context.width * 0.45,
+                        width: context.width * 0.43,
                         suffix: IconButton(
                             onPressed: () {},
                             icon: Icon(
@@ -250,12 +250,14 @@ class _LicenceScreenState extends State<LicenceScreen> {
                     )),
                 Text(
                   "Add a picture of the licene ",
-                  style: getRegularStyle(color: AppColors.black, fontSize: 15),
+                  style: getRegularStyle(
+                      color: AppColors.black, fontSize: context.height * 0.023),
                 ),
                 Text(
                   "(optional)",
-                  style:
-                      getRegularStyle(color: AppColors.lightGrey, fontSize: 15),
+                  style: getRegularStyle(
+                      color: AppColors.lightGrey,
+                      fontSize: context.height * 0.023),
                 ),
               ],
             ),

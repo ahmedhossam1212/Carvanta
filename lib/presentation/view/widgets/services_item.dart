@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 
 Widget buildServicesItem(BuildContext context, index) => Container(
       width: double.infinity,
-      height: context.height * 0.12,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: AppColors.grey),
       child: Padding(
@@ -38,12 +37,10 @@ Widget buildServicesItem(BuildContext context, index) => Container(
                   children: [
                     Text(
                       "Next Service:29/3/2023",
-                      style: getMediumStyle(
-                        color: AppColors.red,
-                      ),
+                      style: getMediumStyle(color: AppColors.red, fontSize: 10),
                     ),
                     SizedBox(
-                      width: context.width * 0.1,
+                      width: context.width * 0.05,
                     ),
                     TextButton(
                       onPressed: () {},
@@ -52,8 +49,7 @@ Widget buildServicesItem(BuildContext context, index) => Container(
                           Text(
                             "View Details",
                             style: getMediumStyle(
-                              color: AppColors.red,
-                            ),
+                                color: AppColors.red, fontSize: 11),
                           ),
                           Icon(
                             EneftyIcons.arrow_right_3_outline,
