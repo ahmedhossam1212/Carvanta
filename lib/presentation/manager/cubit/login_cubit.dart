@@ -27,23 +27,24 @@ class LoginCubit extends Cubit<LoginStates> {
 
   static Future<GoogleSignInAccount?> logOut() => googleSignIn.disconnect();
 
-  void emailLogin({
+  void loginUser({
     required String email,
     required String password,
   }) async {
     emit(LoginLoadingState());
+    try {
+      final response = await Dio().post("https://carvanta-eg.com/api/v1/login",
+          data: {
+            'email': email,
+            'password': password,
+          },
+          options:
+              Options(headers: {'Accept': 'application/json', 'lang': 'ar'}));
+      user = UserModel.fromJson(response.data);
 
-    final response = await Dio().post("https://carvanta-eg.com/api/v1/login",
-        data: {
-          'email': email,
-          'password': password,
-        },
-        options:
-            Options(headers: {'Accept': 'application/json', 'lang': 'ar'}));
-    user = UserModel.fromJson(response.data);
-
-    emit(LoginSuccessState());
-
-    emit(LoginErrState());
+      emit(LoginSuccessState());
+    } catch (e) {
+      emit(LoginErrState());
+    }
   }
 }

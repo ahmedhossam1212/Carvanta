@@ -137,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       mainButton(context, onpressd: () {
                         if (formKey.currentState!.validate()) {
-                          cubit.emailLogin(
+                          cubit.loginUser(
                               email: emailController.text,
                               password: passController.text);
                         }

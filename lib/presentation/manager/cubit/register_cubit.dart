@@ -7,30 +7,30 @@ class RegisterCubit extends Cubit<RegisterStates> {
   RegisterCubit() : super(RegisterInitState());
   static RegisterCubit get(context) => BlocProvider.of(context);
 
-  UserModel? registerModel;
+  UserModel? user;
 
-  void createUser({
+  Future<void> createUser({
     required String email,
     required String name,
     required String password,
     required String phone,
   }) async {
     emit(RegisterLoadingState());
-    try {
-      final response = await Dio().post(
-        "https://carvanta-eg.com/api/v1/register",
-        data: {
-          'email': email,
-          'password': password,
-          'name': name,
-          'phone': phone,
-        },
-        options: Options(headers: {'Accept': 'application/json', 'lang': 'ar'}),
-      );
-      registerModel = UserModel.fromJson(response.data);
-      emit(RegisterSuccessState());
-    } catch (e) {
-      emit(RegisterErrState());
-    }
+
+    final response = await Dio().post(
+      "https://carvanta-eg.com/api/v1/register",
+      data: {
+        'email': email,
+        'password': password,
+        'name': name,
+        'phone': phone,
+      },
+      options: Options(headers: {'Accept': 'application/json', 'lang': 'ar'}),
+    );
+    user = UserModel.fromJson(response.data);
+
+    emit(RegisterSuccessState());
+    print(user!.message);
+    emit(RegisterErrState());
   }
 }

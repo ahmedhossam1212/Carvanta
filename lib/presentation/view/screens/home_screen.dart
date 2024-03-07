@@ -1,10 +1,8 @@
-import 'package:carvanta_i/config/routes/app_routs.dart';
 import 'package:carvanta_i/core/utils/app_colors.dart';
 import 'package:carvanta_i/core/utils/media_query_values.dart';
 import 'package:carvanta_i/core/utils/style_manager.dart';
 import 'package:carvanta_i/presentation/manager/cubit/login_cubit.dart';
 import 'package:carvanta_i/presentation/manager/state/login_state.dart';
-import 'package:carvanta_i/presentation/view/screens/switch_car.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,6 +18,7 @@ class HomeScreen extends StatelessWidget {
       child: BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {},
         builder: (context, state) {
+          //  var cubit = LoginCubit.get(context);
           return Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -27,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "Hi, Ahmed !",
+                      "Hi, ahmed !",
                       style: getBoldStyle(color: AppColors.black, fontSize: 20),
                     ),
                     const Spacer(),
@@ -38,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                       child: MaterialButton(
                         color: AppColors.lightBlack,
                         onPressed: () {
-                          navigateTo(context, const AddCar());
+                          // navigateTo(context, const AddCar());
                         },
                         child: Text(
                           "Switch Car",

@@ -38,7 +38,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
           if (state is RegisterSuccessState) {
             navigateAndFinish(context, const MainScreen());
           }
-          print(state);
         },
         builder: (context, state) {
           var cubit = RegisterCubit.get(context);
@@ -126,8 +125,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         width: double.infinity,
                         controller: phoneController,
                         validate: (String value) {
-                          if (value.isEmpty) {
-                            return "please enter your phone";
+                          if (value.length < 11 || value.length > 11) {
+                            return "phone number must be 11 digits";
                           }
                         },
                         hint: "phone",
@@ -167,9 +166,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       SizedBox(
                         height: context.height * 0.03,
                       ),
-                      mainButton(context, onpressd: () {
+                      mainButton(context, onpressd: () async {
                         if (formKey.currentState!.validate()) {
-                          cubit.createUser(
+                          await cubit.createUser(
                               email: emailController.text,
                               name: nameController.text,
                               password: passController.text,
