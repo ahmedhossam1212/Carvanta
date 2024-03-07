@@ -1,3 +1,4 @@
+import 'package:carvanta_i/core/utils/app_colors.dart';
 import 'package:carvanta_i/core/utils/style_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,14 +6,17 @@ import 'package:flutter/services.dart';
 class AppTheme {
   static ThemeData lightTheme() {
     return ThemeData(
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.red, surfaceTint: Colors.transparent),
       scaffoldBackgroundColor: Colors.white,
       primaryColor: Colors.blue,
       appBarTheme: const AppBarTheme(
+        surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.white,
         elevation: 0.0,
         systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
-        ),
+            statusBarColor: Colors.transparent,
+            statusBarIconBrightness: Brightness.dark),
       ),
       textTheme: TextTheme(
         displayLarge: getBoldStyle(color: Colors.white, fontSize: 35),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:carvanta_i/models/user_model.dart';
 import 'package:carvanta_i/presentation/manager/state/login_state.dart';
 import 'package:dio/dio.dart';
@@ -41,7 +43,7 @@ class LoginCubit extends Cubit<LoginStates> {
           options:
               Options(headers: {'Accept': 'application/json', 'lang': 'ar'}));
       user = UserModel.fromJson(response.data);
-
+      log(user!.message);
       emit(LoginSuccessState());
     } catch (e) {
       emit(LoginErrState());
