@@ -1,4 +1,4 @@
-import 'package:carvanta_i/models/login_model.dart';
+import 'package:carvanta_i/models/user_model.dart';
 import 'package:carvanta_i/presentation/manager/state/login_state.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +8,7 @@ class LoginCubit extends Cubit<LoginStates> {
   LoginCubit() : super(GoogleInitLoginState());
   static LoginCubit get(context) => BlocProvider.of(context);
 
-  LoginModel? loginModel;
+  UserModel? user;
   static final googleSignIn = GoogleSignIn();
 
   Future signInWithGoogle() async {
@@ -40,7 +40,8 @@ class LoginCubit extends Cubit<LoginStates> {
         },
         options:
             Options(headers: {'Accept': 'application/json', 'lang': 'ar'}));
-    loginModel = LoginModel.fromJson(response.data);
+    user = UserModel.fromJson(response.data);
+
     emit(LoginSuccessState());
 
     emit(LoginErrState());

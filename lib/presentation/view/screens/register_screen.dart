@@ -38,6 +38,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           if (state is RegisterSuccessState) {
             navigateAndFinish(context, const MainScreen());
           }
+          print(state);
         },
         builder: (context, state) {
           var cubit = RegisterCubit.get(context);

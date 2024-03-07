@@ -1,5 +1,5 @@
-class RegisterModel {
-  RegisterModel({
+class UserModel {
+  UserModel({
     required this.status,
     required this.message,
     required this.data,
@@ -8,7 +8,7 @@ class RegisterModel {
   late final String message;
   late final Data data;
 
-  RegisterModel.fromJson(Map<String, dynamic> json) {
+  UserModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
     data = Data.fromJson(json['data']);
@@ -29,7 +29,7 @@ class Data {
   late final String name;
   late final String phone;
   late final String email;
-  late final int status;
+  late final String status;
   late final String image;
   late final String accessToken;
 
