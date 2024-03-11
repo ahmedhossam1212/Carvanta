@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:carvanta_i/config/routes/app_routs.dart';
 import 'package:carvanta_i/core/utils/app_colors.dart';
 import 'package:carvanta_i/core/utils/media_query_values.dart';
@@ -35,6 +37,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
       listener: (context, state) {
         if (state is RegisterSuccessState) {
           navigateAndFinish(context, const MainScreen());
+        } else if (state is RegisterErrState) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(
+            "email and phone number must be unique",
+            style: getMediumStyle(color: AppColors.white, fontSize: 15),
+          )));
         }
       },
       builder: (context, state) {

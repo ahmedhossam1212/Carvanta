@@ -36,23 +36,24 @@ class AuthCubit extends Cubit<AuthStates> {
     required String phone,
   }) async {
     emit(RegisterLoadingState());
+    try {
+      final response = await Dio().post(
+        "https://carvanta-eg.com/api/v1/register",
+        data: {
+          'email': email,
+          'password': password,
+          'name': name,
+          'phone': phone,
+        },
+        options: Options(headers: {'Accept': 'application/json', 'lang': 'ar'}),
+      );
+      user = UserModel.fromJson(response.data);
 
-    final response = await Dio().post(
-      "https://carvanta-eg.com/api/v1/register",
-      data: {
-        'email': email,
-        'password': password,
-        'name': name,
-        'phone': phone,
-      },
-      options: Options(headers: {'Accept': 'application/json', 'lang': 'ar'}),
-    );
-    user = UserModel.fromJson(response.data);
-    log(user!.message);
-    log(user!.data.name);
-    emit(RegisterSuccessState());
-
-    emit(RegisterErrState());
+      emit(RegisterSuccessState());
+    } catch (e) {
+      emit(RegisterErrState());
+      log(user!.message);
+    }
   }
 
   void loginUser({
@@ -73,6 +74,7 @@ class AuthCubit extends Cubit<AuthStates> {
       emit(LoginSuccessState());
     } catch (e) {
       emit(LoginErrState());
+      log(user!.message);
     }
   }
 }

@@ -41,6 +41,12 @@ class _LoginScreenState extends State<LoginScreen> {
       listener: (context, state) {
         if (state is GoogleSuccessLoginState || state is LoginSuccessState) {
           navigateTo(context, const MainScreen());
+        } else if (state is LoginErrState) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(
+            "Invalid credentials",
+            style: getMediumStyle(color: AppColors.white, fontSize: 15),
+          )));
         }
       },
       builder: (context, state) {
