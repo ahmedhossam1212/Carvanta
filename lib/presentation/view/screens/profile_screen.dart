@@ -1,8 +1,8 @@
 import 'package:carvanta_i/core/utils/app_colors.dart';
 import 'package:carvanta_i/core/utils/media_query_values.dart';
 import 'package:carvanta_i/core/utils/style_manager.dart';
-import 'package:carvanta_i/presentation/manager/cubit/login_cubit.dart';
-import 'package:carvanta_i/presentation/manager/state/login_state.dart';
+import 'package:carvanta_i/presentation/manager/cubit/auth_cubit.dart';
+import 'package:carvanta_i/presentation/manager/state/auth_state.dart';
 import 'package:carvanta_i/presentation/view/widgets/input_field.dart';
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
@@ -21,10 +21,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginStates>(
+    return BlocConsumer<AuthCubit, AuthStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        var cubit = LoginCubit.get(context);
+        var cubit = AuthCubit.get(context);
         nameController.text = cubit.user!.data.name;
         phoneController.text = cubit.user!.data.phone;
         return Scaffold(

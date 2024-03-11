@@ -2,8 +2,8 @@ import 'package:carvanta_i/config/routes/app_routs.dart';
 import 'package:carvanta_i/core/utils/app_colors.dart';
 import 'package:carvanta_i/core/utils/media_query_values.dart';
 import 'package:carvanta_i/core/utils/style_manager.dart';
-import 'package:carvanta_i/presentation/manager/cubit/login_cubit.dart';
-import 'package:carvanta_i/presentation/manager/state/login_state.dart';
+import 'package:carvanta_i/presentation/manager/cubit/auth_cubit.dart';
+import 'package:carvanta_i/presentation/manager/state/auth_state.dart';
 import 'package:carvanta_i/presentation/view/screens/forget_password.dart';
 import 'package:carvanta_i/presentation/view/screens/main_screen.dart';
 import 'package:carvanta_i/presentation/view/screens/register_screen.dart';
@@ -37,14 +37,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginStates>(
+    return BlocConsumer<AuthCubit, AuthStates>(
       listener: (context, state) {
         if (state is GoogleSuccessLoginState || state is LoginSuccessState) {
           navigateTo(context, const MainScreen());
         }
       },
       builder: (context, state) {
-        var cubit = LoginCubit.get(context);
+        var cubit = AuthCubit.get(context);
         return Scaffold(
           backgroundColor: AppColors.white,
           body: SingleChildScrollView(

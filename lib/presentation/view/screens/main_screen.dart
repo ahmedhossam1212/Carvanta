@@ -2,7 +2,7 @@ import 'package:carvanta_i/config/routes/app_routs.dart';
 import 'package:carvanta_i/core/utils/app_colors.dart';
 import 'package:carvanta_i/core/utils/media_query_values.dart';
 import 'package:carvanta_i/core/utils/style_manager.dart';
-import 'package:carvanta_i/presentation/manager/cubit/login_cubit.dart';
+import 'package:carvanta_i/presentation/manager/cubit/auth_cubit.dart';
 import 'package:carvanta_i/presentation/view/screens/change_password_screen.dart';
 import 'package:carvanta_i/presentation/view/screens/home_screen.dart';
 import 'package:carvanta_i/presentation/view/screens/licence_screen.dart';
@@ -228,7 +228,7 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         TextButton(
                             onPressed: () {
-                              LoginCubit.logOut();
+                              AuthCubit.logOut();
                               navigateAndFinish(context, const LoginScreen());
                             },
                             child: Row(

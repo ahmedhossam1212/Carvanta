@@ -1,14 +1,14 @@
 import 'dart:developer';
 
 import 'package:carvanta_i/models/user_model.dart';
-import 'package:carvanta_i/presentation/manager/state/login_state.dart';
+import 'package:carvanta_i/presentation/manager/state/auth_state.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class LoginCubit extends Cubit<LoginStates> {
-  LoginCubit() : super(GoogleInitLoginState());
-  static LoginCubit get(context) => BlocProvider.of(context);
+class AuthCubit extends Cubit<AuthStates> {
+  AuthCubit() : super(AuthInitState());
+  static AuthCubit get(context) => BlocProvider.of(context);
 
   UserModel? user;
   static final googleSignIn = GoogleSignIn();
@@ -17,7 +17,7 @@ class LoginCubit extends Cubit<LoginStates> {
     emit(GoogleLoadingLoginState());
     googleSignIn.signIn().then((result) {
       result?.authentication.then((googleKey) {
-        //print("accessToken :  ${googleKey.accessToken}");
+        //log("accessToken :  ${googleKey.accessToken}");
         emit(GoogleSuccessLoginState());
       }).catchError((err) {
         emit(GoogleErrLoginState());
@@ -28,6 +28,32 @@ class LoginCubit extends Cubit<LoginStates> {
   }
 
   static Future<GoogleSignInAccount?> logOut() => googleSignIn.disconnect();
+
+  void createUser({
+    required String email,
+    required String name,
+    required String password,
+    required String phone,
+  }) async {
+    emit(RegisterLoadingState());
+
+    final response = await Dio().post(
+      "https://carvanta-eg.com/api/v1/register",
+      data: {
+        'email': email,
+        'password': password,
+        'name': name,
+        'phone': phone,
+      },
+      options: Options(headers: {'Accept': 'application/json', 'lang': 'ar'}),
+    );
+    user = UserModel.fromJson(response.data);
+    log(user!.message);
+    log(user!.data.name);
+    emit(RegisterSuccessState());
+
+    emit(RegisterErrState());
+  }
 
   void loginUser({
     required String email,
