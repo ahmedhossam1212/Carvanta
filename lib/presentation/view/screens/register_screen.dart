@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:carvanta_i/config/routes/app_routs.dart';
 import 'package:carvanta_i/core/utils/app_colors.dart';
 import 'package:carvanta_i/core/utils/media_query_values.dart';
