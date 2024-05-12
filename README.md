@@ -3,8 +3,8 @@ An application that coordinates and manages your car’s maintenance. It notifie
 
 
 # Team Members
-- Ahmed Hossam 
-- Ahmed Rakha
+- Ahmed Hossam - Mobile Developer
+- Ahmed Rakha - Backend Developer
 
 # App Layouts
 
